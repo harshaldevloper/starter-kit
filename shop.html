@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - AIVANTAGE | AI Tools & Templates</title>
-    <meta name="description" content="Premium AI tools, templates, and resources for creators and developers. Free and paid digital products.">
+    <title>Shop - AIVANTAGE | Premium AI Tools & Templates</title>
+    <meta name="description" content="Premium AI tools, templates, and resources for creators and developers.">
     <style>
         * {
             margin: 0;
@@ -12,80 +12,186 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, var(--glass) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
         
+        /* Header */
         header {
             text-align: center;
             padding: 3rem 0;
-            color: white;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.9;
+            margin-bottom: 2rem;
         }
         
+        /* Trust Badges */
         .trust-badges {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 2rem 0;
             flex-wrap: wrap;
         }
         
         .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
-            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease backwards;
         }
         
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .badge:nth-child(1) { animation-delay: 0.1s; }
+        .badge:nth-child(2) { animation-delay: 0.2s; }
+        .badge:nth-child(3) { animation-delay: 0.3s; }
+        .badge:nth-child(4) { animation-delay: 0.4s; }
+        
+        /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
             margin: 3rem 0;
         }
         
         .product-card {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease backwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.4);
         }
+        
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
         
         .product-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 0.25rem 0.75rem;
+            padding: 0.4rem 1rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .product-badge.free {
@@ -97,28 +203,39 @@
         }
         
         .product-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
         }
         
         .product-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
         
         .product-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .product-features li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-features li:hover {
+            transform: translateX(10px);
         }
         
         .product-features li:last-child {
@@ -129,73 +246,90 @@
             content: '✓';
             color: #10b981;
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
         .price-section {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 12px;
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         .price {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
-            color: #667eea;
+            color: #fff;
         }
         
         .price-original {
             text-decoration: line-through;
-            color: #999;
-            font-size: 1.2rem;
-            margin-left: 0.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.5rem;
+            margin-left: 0.75rem;
         }
         
         .price-note {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 0.75rem;
         }
         
         .btn {
             display: block;
             width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            color: var(--primary);
             text-align: center;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
+            border-radius: 50px;
+            font-weight: 700;
             font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(255,255,255,0.4);
         }
         
         .btn-outline {
             background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff;
         }
         
         .btn-outline:hover {
-            background: #667eea;
-            color: white;
+            background: rgba(255,255,255,0.1);
+            border-color: #fff;
         }
         
+        /* Guarantee Section */
         .guarantee {
-            background: white;
-            padding: 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            margin: 3rem 0;
+            padding: 3rem;
+            margin: 4rem 0;
             text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .guarantee h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
         
         .guarantee-grid {
@@ -206,60 +340,72 @@
         }
         
         .guarantee-item {
-            padding: 1rem;
+            padding: 1.5rem;
+            animation: fadeInUp 0.8s ease backwards;
         }
         
+        .guarantee-item:nth-child(1) { animation-delay: 0.1s; }
+        .guarantee-item:nth-child(2) { animation-delay: 0.2s; }
+        .guarantee-item:nth-child(3) { animation-delay: 0.3s; }
+        .guarantee-item:nth-child(4) { animation-delay: 0.4s; }
+        .guarantee-item:nth-child(5) { animation-delay: 0.5s; }
+        .guarantee-item:nth-child(6) { animation-delay: 0.6s; }
+        
         .guarantee-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
         
         .guarantee-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
         
         .guarantee-text {
-            color: #666;
+            opacity: 0.8;
             font-size: 0.9rem;
         }
         
+        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 0;
-            color: white;
+            opacity: 0.9;
             margin-top: 3rem;
         }
         
         footer a {
-            color: white;
-            text-decoration: underline;
-            margin: 0 0.5rem;
-        }
-        
-        .legal-links {
-            margin: 1rem 0;
-        }
-        
-        .legal-links a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 0.75rem;
             opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
         
-        .legal-links a:hover {
+        footer a:hover {
             opacity: 1;
         }
         
+        .legal-links {
+            margin: 1.5rem 0;
+        }
+        
+        .legal-links a {
+            margin: 0 1rem;
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.5rem; }
             .container { padding: 1rem; }
             .products-grid { grid-template-columns: 1fr; }
+            .trust-badges { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
+    
     <div class="container">
         <header>
             <h1>🛒 AIVANTAGE Shop</h1>
@@ -267,14 +413,14 @@
             
             <div class="trust-badges">
                 <span class="badge">⚡ Instant Digital Delivery</span>
-                <span class="badge">🔒 Secure Checkout</span>
-                <span class="badge">💳 Multiple Payment Methods</span>
-                <span class="badge">🌍 Global Payments</span>
+                <span class="badge">🔒 Secure Checkout via Paddle</span>
+                <span class="badge">💳 All Cards Accepted</span>
+                <span class="badge">🌍 Global Payments (200+ Countries)</span>
             </div>
         </header>
         
         <div class="products-grid">
-            <!-- Product 1: Free Starter Kit -->
+            <!-- Product 1 -->
             <div class="product-card">
                 <span class="product-badge free">FREE</span>
                 <h3 class="product-title">AI Automation Starter Kit</h3>
@@ -294,12 +440,12 @@
                     <div class="price-note">Pay What You Want (optional support)</div>
                 </div>
                 
-                <a href="https://aivantage-starter.vercel.app" class="btn" target="_blank">📥 Download Free</a>
+                <a href="https://aivantage-starter.vercel.app" class="btn btn-outline" target="_blank">📥 Download Free</a>
             </div>
             
-            <!-- Product 2: Prompt Library -->
+            <!-- Product 2 -->
             <div class="product-card">
-                <span class="product-badge bestseller">BESTSELLER</span>
+                <span class="product-badge bestseller">⭐ BESTSELLER</span>
                 <h3 class="product-title">500+ AI Prompts Library</h3>
                 <p class="product-description">Battle-tested prompts that actually work. Save hours of trial and error.</p>
                 
@@ -320,9 +466,9 @@
                 <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
             </div>
             
-            <!-- Product 3: Notion Templates -->
+            <!-- Product 3 -->
             <div class="product-card">
-                <span class="product-badge">POPULAR</span>
+                <span class="product-badge">🔥 POPULAR</span>
                 <h3 class="product-title">Creator's Notion Template Pack</h3>
                 <p class="product-description">All-in-one workspace for content creators. Plan, create, and track everything.</p>
                 
@@ -343,9 +489,9 @@
                 <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
             </div>
             
-            <!-- Product 4: AI Tools Directory -->
+            <!-- Product 4 -->
             <div class="product-card">
-                <span class="product-badge">NEW</span>
+                <span class="product-badge">🆕 NEW</span>
                 <h3 class="product-title">AI Tools Directory 2026</h3>
                 <p class="product-description">Curated list of 200+ AI tools. Save time finding the right tools for your needs.</p>
                 
@@ -366,9 +512,9 @@
                 <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
             </div>
             
-            <!-- Product 5: Template Club -->
+            <!-- Product 5 -->
             <div class="product-card">
-                <span class="product-badge">SUBSCRIPTION</span>
+                <span class="product-badge">📦 SUBSCRIPTION</span>
                 <h3 class="product-title">Monthly Template Club</h3>
                 <p class="product-description">Fresh templates delivered monthly. Never run out of content ideas.</p>
                 
@@ -389,9 +535,9 @@
                 <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Subscribe Now</button>
             </div>
             
-            <!-- Product 6: Custom Prompt -->
+            <!-- Product 6 -->
             <div class="product-card">
-                <span class="product-badge">PREMIUM</span>
+                <span class="product-badge">💎 PREMIUM</span>
                 <h3 class="product-title">Custom Prompt Engineering</h3>
                 <p class="product-description">Get custom prompts tailored to your specific use case. 1-on-1 consultation.</p>
                 
@@ -422,31 +568,26 @@
                     <div class="guarantee-title">Instant Delivery</div>
                     <div class="guarantee-text">Get access immediately after purchase</div>
                 </div>
-                
                 <div class="guarantee-item">
                     <div class="guarantee-icon">🔒</div>
                     <div class="guarantee-title">Secure Payment</div>
                     <div class="guarantee-text">Encrypted checkout, PCI compliant</div>
                 </div>
-                
                 <div class="guarantee-item">
                     <div class="guarantee-icon">💳</div>
                     <div class="guarantee-title">All Cards Accepted</div>
                     <div class="guarantee-text">Visa, Mastercard, Amex, Apple Pay, Google Pay</div>
                 </div>
-                
                 <div class="guarantee-item">
                     <div class="guarantee-icon">🌍</div>
                     <div class="guarantee-title">Global Payments</div>
                     <div class="guarantee-text">Accept payments from 200+ countries</div>
                 </div>
-                
                 <div class="guarantee-item">
                     <div class="guarantee-icon">💰</div>
                     <div class="guarantee-title">Money-Back Guarantee</div>
                     <div class="guarantee-text">30-day refund policy, no questions asked</div>
                 </div>
-                
                 <div class="guarantee-item">
                     <div class="guarantee-icon">📧</div>
                     <div class="guarantee-title">Email Support</div>
@@ -465,7 +606,7 @@
                 <a href="refund.html">Refund Policy</a>
             </div>
             
-            <p style="margin-top: 1rem; opacity: 0.8;">
+            <p style="margin-top: 1rem;">
                 <a href="index.html">Home</a> •
                 <a href="pricing.html">Pricing</a> •
                 <a href="https://aivantage-tools.vercel.app" target="_blank">Free Tools</a> •
