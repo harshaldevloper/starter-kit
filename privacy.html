@@ -6,163 +6,163 @@
     <title>Privacy Policy - AIVANTAGE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #667eea; --secondary: #764ba2; --accent: #f093fb;
+            --glass: rgba(255, 255, 255, 0.1); --glass-border: rgba(255, 255, 255, 0.2);
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            min-height: 100vh; color: #fff; line-height: 1.7;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .bg-animation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
         }
-        h1 { color: #667eea; margin-bottom: 10px; font-size: 2rem; }
-        .subtitle { color: #666; margin-bottom: 30px; font-size: 0.9rem; }
-        h2 { color: #764ba2; margin: 25px 0 15px 0; font-size: 1.3rem; }
-        p { margin-bottom: 15px; color: #555; }
-        ul { margin: 15px 0; padding-left: 25px; }
-        li { margin-bottom: 8px; color: #555; }
-        a { color: #667eea; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .highlight { background: #f0f0f0; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0; }
-        .last-updated { color: #888; font-size: 0.85rem; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+        .bg-animation::before {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: radial-gradient(circle, var(--glass) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        header { text-align: center; padding: 3rem 0; animation: fadeInDown 0.8s ease; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; }
+        .content {
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 20px;
+            padding: 3rem; margin: 2rem 0; animation: fadeInUp 0.8s ease;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem 0; color: var(--accent); }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; opacity: 0.9; }
+        p { margin-bottom: 1rem; opacity: 0.95; }
+        ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; opacity: 0.95; }
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.3s; }
+        a:hover { opacity: 1; text-decoration: underline; }
+        .highlight {
+            background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 12px;
+            border-left: 4px solid var(--accent); margin: 1.5rem 0;
+        }
+        footer { text-align: center; padding: 3rem 0; opacity: 0.8; margin-top: 3rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 0.75rem; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .content { padding: 2rem; } }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="subtitle">Last updated: March 26, 2026</p>
+        <header>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Last updated: March 26, 2026</p>
+        </header>
+        <div class="content">
+            <h2>1. Introduction</h2>
+            <p>AIVANTAGE ("we," "us," "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you purchase our digital products or use our services.</p>
 
-        <h2>1. Introduction</h2>
-        <p>AIVANTAGE ("we," "us," "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you purchase our digital products or use our services.</p>
+            <h2>2. Information We Collect</h2>
+            <h3>2.1 Information You Provide</h3>
+            <ul>
+                <li><strong>Name:</strong> For order processing and communication</li>
+                <li><strong>Email address:</strong> For product delivery, updates, and support</li>
+                <li><strong>Payment information:</strong> Processed securely by Paddle (we do not store card details)</li>
+                <li><strong>Support messages:</strong> When you contact us for help</li>
+            </ul>
 
-        <h2>2. Information We Collect</h2>
-        <p>We collect the following types of information:</p>
-        
-        <h3>2.1 Information You Provide</h3>
-        <ul>
-            <li><strong>Name:</strong> For order processing and communication</li>
-            <li><strong>Email address:</strong> For product delivery, updates, and support</li>
-            <li><strong>Payment information:</strong> Processed securely by Paddle (we do not store card details)</li>
-            <li><strong>Support messages:</strong> When you contact us for help</li>
-        </ul>
+            <h3>2.2 Automatically Collected Information</h3>
+            <ul>
+                <li><strong>Website analytics:</strong> Page views, referral sources (via Vercel Analytics)</li>
+                <li><strong>Device information:</strong> Browser type, operating system</li>
+                <li><strong>IP address:</strong> For fraud prevention and analytics</li>
+            </ul>
 
-        <h3>2.2 Automatically Collected Information</h3>
-        <ul>
-            <li><strong>Website analytics:</strong> Page views, referral sources (via Vercel Analytics or similar)</li>
-            <li><strong>Device information:</strong> Browser type, operating system</li>
-            <li><strong>IP address:</strong> For fraud prevention and analytics</li>
-        </ul>
+            <h2>3. How We Use Your Information</h2>
+            <p>We use your information to:</p>
+            <ul>
+                <li>Process and fulfill your orders</li>
+                <li>Deliver digital products via email or download links</li>
+                <li>Provide customer support</li>
+                <li>Send important updates about your purchases</li>
+                <li>Improve our products and services</li>
+                <li>Prevent fraud and ensure security</li>
+                <li>Comply with legal obligations</li>
+            </ul>
 
-        <h2>3. How We Use Your Information</h2>
-        <p>We use your information to:</p>
-        <ul>
-            <li>Process and fulfill your orders</li>
-            <li>Deliver digital products via email or download links</li>
-            <li>Provide customer support</li>
-            <li>Send important updates about your purchases</li>
-            <li>Improve our products and services</li>
-            <li>Prevent fraud and ensure security</li>
-            <li>Comply with legal obligations</li>
-        </ul>
+            <h2>4. How We Share Your Information</h2>
+            <div class="highlight">
+                <strong>We do NOT sell or rent your personal information to third parties.</strong>
+            </div>
+            <p>We share information only with:</p>
+            <ul>
+                <li><strong>Paddle (Merchant of Record):</strong> For payment processing, tax compliance, and fraud prevention</li>
+                <li><strong>Email service providers:</strong> For product delivery and communications</li>
+                <li><strong>Analytics providers:</strong> For website usage insights (anonymized data)</li>
+                <li><strong>Legal authorities:</strong> Only when required by law</li>
+            </ul>
 
-        <h2>4. How We Share Your Information</h2>
-        <div class="highlight">
-            <strong>We do NOT sell or rent your personal information to third parties.</strong>
+            <h2>5. Data Retention</h2>
+            <p>We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, comply with legal obligations (tax records: 7 years), resolve disputes, and enforce agreements. You may request deletion of your data at any time (subject to legal retention requirements).</p>
+
+            <h2>6. Your Rights</h2>
+            <p>Depending on your location, you may have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of your personal data</li>
+                <li><strong>Correction:</strong> Update inaccurate information</li>
+                <li><strong>Deletion:</strong> Request deletion of your data</li>
+                <li><strong>Opt-out:</strong> Unsubscribe from marketing communications</li>
+                <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
+            </ul>
+            <p>To exercise these rights, contact: harshaldevloper@gmail.com</p>
+
+            <h2>7. Cookies & Tracking</h2>
+            <p>Our website uses essential cookies for functionality and analytics cookies to understand usage (Vercel Analytics). You can control cookie settings through your browser preferences.</p>
+
+            <h2>8. Security Measures</h2>
+            <p>We implement reasonable security measures including SSL/TLS encryption, secure payment processing via Paddle (PCI DSS compliant), regular security updates, and limited access to personal information.</p>
+            <div class="highlight">
+                <strong>Note:</strong> No method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
+            </div>
+
+            <h2>9. Children's Privacy</h2>
+            <p>Our products are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we become aware of such collection, we will delete the information promptly.</p>
+
+            <h2>10. International Data Transfers</h2>
+            <p>As a global digital business, your data may be processed in countries outside your residence. Paddle and our service providers comply with applicable data protection laws. We use standard contractual clauses for EU/UK data transfers.</p>
+
+            <h2>11. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy periodically. Changes will be posted on this page with an updated revision date. Significant changes will be communicated via email to affected users.</p>
+
+            <h2>12. Contact Us</h2>
+            <p>For privacy-related questions, concerns, or requests:</p>
+            <ul>
+                <li><strong>Email:</strong> harshaldevloper@gmail.com</li>
+                <li><strong>Response Time:</strong> Within 7 business days</li>
+            </ul>
+
+            <h2>13. Data Controller</h2>
+            <p>For GDPR and international data protection purposes:</p>
+            <ul>
+                <li><strong>Data Controller:</strong> Harshal Lahare (Individual/Sole Proprietor)</li>
+                <li><strong>Business Name:</strong> AIVANTAGE</li>
+                <li><strong>Location:</strong> India</li>
+                <li><strong>Contact:</strong> harshaldevloper@gmail.com</li>
+            </ul>
         </div>
-        <p>We share information only with:</p>
-        <ul>
-            <li><strong>Paddle (Merchant of Record):</strong> For payment processing, tax compliance, and fraud prevention</li>
-            <li><strong>Email service providers:</strong> For product delivery and communications (e.g., Gmail, Beehiiv)</li>
-            <li><strong>Analytics providers:</strong> For website usage insights (anonymized data)</li>
-            <li><strong>Legal authorities:</strong> Only when required by law</li>
-        </ul>
-
-        <h2>5. Data Retention</h2>
-        <p>We retain your personal information for as long as necessary to:</p>
-        <ul>
-            <li>Fulfill the purposes outlined in this policy</li>
-            <li>Comply with legal obligations (tax records: 7 years)</li>
-            <li>Resolve disputes and enforce agreements</li>
-        </ul>
-        <p>You may request deletion of your data at any time (subject to legal retention requirements).</p>
-
-        <h2>6. Your Rights</h2>
-        <p>Depending on your location, you may have the right to:</p>
-        <ul>
-            <li><strong>Access:</strong> Request a copy of your personal data</li>
-            <li><strong>Correction:</strong> Update inaccurate information</li>
-            <li><strong>Deletion:</strong> Request deletion of your data</li>
-            <li><strong>Opt-out:</strong> Unsubscribe from marketing communications</li>
-            <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
-        </ul>
-        <p>To exercise these rights, contact: harshaldevloper@gmail.com</p>
-
-        <h2>7. Cookies & Tracking</h2>
-        <p>Our website uses:</p>
-        <ul>
-            <li><strong>Essential cookies:</strong> For website functionality</li>
-            <li><strong>Analytics cookies:</strong> To understand usage (Google Analytics, Vercel Analytics)</li>
-            <li><strong>Marketing cookies:</strong> Only with your consent (if applicable)</li>
-        </ul>
-        <p>You can control cookie settings through your browser preferences.</p>
-
-        <h2>8. International Data Transfers</h2>
-        <p>As a global digital business:</p>
-        <ul>
-            <li>Your data may be processed in countries outside your residence</li>
-            <li>Paddle and our service providers comply with applicable data protection laws</li>
-            <li>We use standard contractual clauses for EU/UK data transfers</li>
-        </ul>
-
-        <h2>9. Security Measures</h2>
-        <p>We implement reasonable security measures including:</p>
-        <ul>
-            <li>SSL/TLS encryption for data transmission</li>
-            <li>Secure payment processing via Paddle (PCI DSS compliant)</li>
-            <li>Regular security updates and monitoring</li>
-            <li>Limited access to personal information</li>
-        </ul>
-        <div class="highlight">
-            <strong>Note:</strong> No method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
-        </div>
-
-        <h2>10. Children's Privacy</h2>
-        <p>Our products are not directed to children under 13. We do not knowingly collect personal information from children under 13. If we become aware of such collection, we will delete the information promptly.</p>
-
-        <h2>11. Third-Party Links</h2>
-        <p>Our website and products may contain links to third-party sites (e.g., AI tools, resources). We are not responsible for the privacy practices of external sites. We encourage you to review their privacy policies.</p>
-
-        <h2>12. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy periodically. Changes will be posted on this page with an updated revision date. Significant changes will be communicated via email to affected users.</p>
-
-        <h2>13. Contact Us</h2>
-        <p>For privacy-related questions, concerns, or requests:</p>
-        <ul>
-            <li><strong>Email:</strong> harshaldevloper@gmail.com</li>
-            <li><strong>Response Time:</strong> Within 7 business days</li>
-        </ul>
-
-        <h2>14. Data Controller</h2>
-        <p>For GDPR and international data protection purposes:</p>
-        <ul>
-            <li><strong>Data Controller:</strong> Harshal (Individual/Sole Proprietor)</li>
-            <li><strong>Business Name:</strong> AIVANTAGE</li>
-            <li><strong>Location:</strong> India</li>
-            <li><strong>Contact:</strong> harshaldevloper@gmail.com</li>
-        </ul>
-
-        <p class="last-updated">
-            <strong>Effective Date:</strong> March 26, 2026<br>
-            <strong>Last Review:</strong> March 26, 2026<br>
-            <strong>Next Review:</strong> March 2027 (annual)
-        </p>
+        <footer>
+            <p>Built with ❤️ by Harshal Lahare | AIVANTAGE</p>
+            <p>India 🇮🇳</p>
+            <div style="margin-top: 1rem;">
+                <a href="index.html">Home</a> •
+                <a href="shop.html">Shop</a> •
+                <a href="pricing.html">Pricing</a> •
+                <a href="terms.html">Terms of Service</a> •
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">© 2026 AIVANTAGE. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>

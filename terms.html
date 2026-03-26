@@ -6,144 +6,172 @@
     <title>Terms of Service - AIVANTAGE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #667eea; --secondary: #764ba2; --accent: #f093fb;
+            --glass: rgba(255, 255, 255, 0.1); --glass-border: rgba(255, 255, 255, 0.2);
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            min-height: 100vh; color: #fff; line-height: 1.7;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .bg-animation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
         }
-        h1 { color: #667eea; margin-bottom: 10px; font-size: 2rem; }
-        .subtitle { color: #666; margin-bottom: 30px; font-size: 0.9rem; }
-        h2 { color: #764ba2; margin: 25px 0 15px 0; font-size: 1.3rem; }
-        p { margin-bottom: 15px; color: #555; }
-        ul { margin: 15px 0; padding-left: 25px; }
-        li { margin-bottom: 8px; color: #555; }
-        a { color: #667eea; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .highlight { background: #f0f0f0; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0; }
-        .last-updated { color: #888; font-size: 0.85rem; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+        .bg-animation::before {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: radial-gradient(circle, var(--glass) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        header { text-align: center; padding: 3rem 0; animation: fadeInDown 0.8s ease; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; }
+        .content {
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 20px;
+            padding: 3rem; margin: 2rem 0; animation: fadeInUp 0.8s ease;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem 0; color: var(--accent); }
+        h3 { font-size: 1.3rem; margin: 1.5rem 0 0.75rem 0; opacity: 0.9; }
+        p { margin-bottom: 1rem; opacity: 0.95; }
+        ul { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; opacity: 0.95; }
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.3s; }
+        a:hover { opacity: 1; text-decoration: underline; }
+        .highlight {
+            background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 12px;
+            border-left: 4px solid var(--accent); margin: 1.5rem 0;
+        }
+        footer { text-align: center; padding: 3rem 0; opacity: 0.8; margin-top: 3rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 0.75rem; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } .content { padding: 2rem; } }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
     <div class="container">
-        <h1>Terms of Service</h1>
-        <p class="subtitle">Last updated: March 26, 2026</p>
+        <header>
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Last updated: March 26, 2026</p>
+        </header>
+        <div class="content">
+            <h2>1. Agreement to Terms</h2>
+            <p>By accessing or purchasing from AIVANTAGE ("we," "us," "our"), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use our services or purchase our products.</p>
 
-        <h2>1. Agreement to Terms</h2>
-        <p>By accessing or purchasing from AIVANTAGE ("we," "us," "our"), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use our services or purchase our products.</p>
-
-        <h2>2. Digital Products</h2>
-        <p>AIVANTAGE sells digital products including but not limited to:</p>
-        <ul>
-            <li>AI prompt templates and libraries</li>
-            <li>Notion templates and productivity tools</li>
-            <li>Educational courses and guides</li>
-            <li>Starter kits and resource packs</li>
-            <li>Micro-SaaS tools and applications</li>
-        </ul>
-        <p>All products are delivered digitally via instant download or email access.</p>
-
-        <h2>3. License & Usage</h2>
-        <p>When you purchase a digital product from AIVANTAGE, you receive:</p>
-        <ul>
-            <li><strong>Personal License:</strong> For individual use only</li>
-            <li><strong>Commercial License:</strong> Only if explicitly stated in the product description</li>
-            <li><strong>No Resale Rights:</strong> You may not resell, redistribute, or claim ownership of our products</li>
-            <li><strong>No Sharing:</strong> Do not share download links or access credentials with others</li>
-        </ul>
-
-        <h2>4. Payments & Pricing</h2>
-        <p>All payments are processed through Paddle (our Merchant of Record):</p>
-        <ul>
-            <li>Prices are in USD unless otherwise stated</li>
-            <li>Paddle handles all payment processing securely</li>
-            <li>We do not store your payment information</li>
-            <li>All major credit cards and payment methods supported by Paddle are accepted</li>
-        </ul>
-
-        <h2>5. Refund Policy</h2>
-        <div class="highlight">
-            <strong>Due to the digital nature of our products:</strong>
+            <h2>2. Digital Products</h2>
+            <p>AIVANTAGE sells digital products including but not limited to:</p>
             <ul>
-                <li>Digital downloads are generally non-refundable once accessed</li>
-                <li>Refunds may be considered within 14 days for technical issues preventing access</li>
-                <li>Subscription cancellations are effective immediately; no partial refunds</li>
-                <li>Contact support@aivantage.com for refund requests</li>
+                <li>AI prompt templates and libraries</li>
+                <li>Notion templates and productivity tools</li>
+                <li>Educational courses and guides</li>
+                <li>Starter kits and resource packs</li>
+                <li>Micro-SaaS tools and applications</li>
+            </ul>
+            <p>All products are delivered digitally via instant download or email access.</p>
+
+            <h2>3. License & Usage</h2>
+            <p>When you purchase a digital product from AIVANTAGE, you receive:</p>
+            <ul>
+                <li><strong>Personal License:</strong> For individual use only</li>
+                <li><strong>Commercial License:</strong> Only if explicitly stated in the product description</li>
+                <li><strong>No Resale Rights:</strong> You may not resell, redistribute, or claim ownership of our products</li>
+                <li><strong>No Sharing:</strong> Do not share download links or access credentials with others</li>
+            </ul>
+
+            <h2>4. Payments & Pricing</h2>
+            <p>All payments are processed through Paddle (our Merchant of Record):</p>
+            <ul>
+                <li>Prices are in USD unless otherwise stated</li>
+                <li>Paddle handles all payment processing securely</li>
+                <li>We do not store your payment information</li>
+                <li>All major credit cards and payment methods supported by Paddle are accepted</li>
+            </ul>
+
+            <h2>5. Refund Policy</h2>
+            <div class="highlight">
+                <strong>Due to the digital nature of our products:</strong>
+                <ul>
+                    <li>Digital downloads are generally non-refundable once accessed</li>
+                    <li>Refunds may be considered within 14 days for technical issues preventing access</li>
+                    <li>Subscription cancellations are effective immediately; no partial refunds</li>
+                    <li>Contact support@aivantage.com for refund requests</li>
+                </ul>
+            </div>
+            <p>See our full <a href="refund.html">Refund Policy</a> for details.</p>
+
+            <h2>6. Account Responsibility</h2>
+            <p>You are responsible for:</p>
+            <ul>
+                <li>Maintaining the confidentiality of your account credentials</li>
+                <li>All activities that occur under your account</li>
+                <li>Ensuring your email address is current for product delivery</li>
+            </ul>
+
+            <h2>7. Intellectual Property</h2>
+            <p>All content, products, and materials on AIVANTAGE are owned by or licensed to us and are protected by copyright and intellectual property laws. You may not:</p>
+            <ul>
+                <li>Copy, reproduce, or distribute our products without permission</li>
+                <li>Create derivative works from our products</li>
+                <li>Remove copyright notices or watermarks</li>
+                <li>Use our trademarks or branding without written consent</li>
+            </ul>
+
+            <h2>8. Disclaimer of Warranties</h2>
+            <p>Our digital products are provided "as is" without warranties of any kind. While we strive for quality:</p>
+            <ul>
+                <li>We do not guarantee specific results from using our products</li>
+                <li>AI tools and prompts may require customization for your use case</li>
+                <li>Third-party services mentioned may change or discontinue</li>
+            </ul>
+
+            <h2>9. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, AIVANTAGE shall not be liable for:</p>
+            <ul>
+                <li>Indirect, incidental, or consequential damages</li>
+                <li>Loss of data, profits, or business opportunities</li>
+                <li>Issues arising from misuse of our products</li>
+                <li>Changes to third-party services or platforms</li>
+            </ul>
+
+            <h2>10. Changes to Terms</h2>
+            <p>We may update these Terms of Service at any time. Changes will be posted on this page with an updated revision date. Continued use of our services constitutes acceptance of modified terms.</p>
+
+            <h2>11. Termination</h2>
+            <p>We reserve the right to terminate or suspend accounts for:</p>
+            <ul>
+                <li>Violation of these terms</li>
+                <li>Fraudulent activity or chargebacks</li>
+                <li>Abuse or harassment</li>
+                <li>Illegal use of our products</li>
+            </ul>
+
+            <h2>12. Governing Law</h2>
+            <p>These terms are governed by the laws of India. Any disputes will be resolved in the appropriate courts in India.</p>
+
+            <h2>13. Contact</h2>
+            <p>For questions about these Terms of Service, contact us at:</p>
+            <ul>
+                <li>Email: harshaldevloper@gmail.com</li>
+                <li>Twitter: @aivantage_ai</li>
             </ul>
         </div>
-        <p>See our full <a href="/refund">Refund Policy</a> for details.</p>
-
-        <h2>6. Account Responsibility</h2>
-        <p>You are responsible for:</p>
-        <ul>
-            <li>Maintaining the confidentiality of your account credentials</li>
-            <li>All activities that occur under your account</li>
-            <li>Ensuring your email address is current for product delivery</li>
-        </ul>
-
-        <h2>7. Intellectual Property</h2>
-        <p>All content, products, and materials on AIVANTAGE are owned by or licensed to us and are protected by copyright and intellectual property laws. You may not:</p>
-        <ul>
-            <li>Copy, reproduce, or distribute our products without permission</li>
-            <li>Create derivative works from our products</li>
-            <li>Remove copyright notices or watermarks</li>
-            <li>Use our trademarks or branding without written consent</li>
-        </ul>
-
-        <h2>8. Disclaimer of Warranties</h2>
-        <p>Our digital products are provided "as is" without warranties of any kind. While we strive for quality:</p>
-        <ul>
-            <li>We do not guarantee specific results from using our products</li>
-            <li>AI tools and prompts may require customization for your use case</li>
-            <li>Third-party services mentioned may change or discontinue</li>
-        </ul>
-
-        <h2>9. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, AIVANTAGE shall not be liable for:</p>
-        <ul>
-            <li>Indirect, incidental, or consequential damages</li>
-            <li>Loss of data, profits, or business opportunities</li>
-            <li>Issues arising from misuse of our products</li>
-            <li>Changes to third-party services or platforms</li>
-        </ul>
-
-        <h2>10. Changes to Terms</h2>
-        <p>We may update these Terms of Service at any time. Changes will be posted on this page with an updated revision date. Continued use of our services constitutes acceptance of modified terms.</p>
-
-        <h2>11. Termination</h2>
-        <p>We reserve the right to terminate or suspend accounts for:</p>
-        <ul>
-            <li>Violation of these terms</li>
-            <li>Fraudulent activity or chargebacks</li>
-            <li>Abuse or harassment</li>
-            <li>Illegal use of our products</li>
-        </ul>
-
-        <h2>12. Governing Law</h2>
-        <p>These terms are governed by the laws of India. Any disputes will be resolved in the appropriate courts in India.</p>
-
-        <h2>13. Contact</h2>
-        <p>For questions about these Terms of Service, contact us at:</p>
-        <ul>
-            <li>Email: harshaldevloper@gmail.com</li>
-            <li>Twitter: @aivantage (or current handle)</li>
-        </ul>
-
-        <p class="last-updated">
-            <strong>Effective Date:</strong> March 26, 2026<br>
-            <strong>Business:</strong> AIVANTAGE (Individual/Sole Proprietor)<br>
-            <strong>Location:</strong> India
-        </p>
+        <footer>
+            <p>Built with ❤️ by Harshal Lahare | AIVANTAGE</p>
+            <p>India 🇮🇳</p>
+            <div style="margin-top: 1rem;">
+                <a href="index.html">Home</a> •
+                <a href="shop.html">Shop</a> •
+                <a href="pricing.html">Pricing</a> •
+                <a href="privacy.html">Privacy Policy</a> •
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">© 2026 AIVANTAGE. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>
