@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - AIVANTAGE | AI Tools & Templates</title>
+    <meta name="description" content="Premium AI tools, templates, and resources for creators and developers. Free and paid digital products.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .product-badge.free {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .product-badge.bestseller {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .price-section {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .guarantee {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .guarantee-item {
+            padding: 1rem;
+        }
+        
+        .guarantee-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .guarantee-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+            margin: 0 0.5rem;
+        }
+        
+        .legal-links {
+            margin: 1rem 0;
+        }
+        
+        .legal-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+        }
+        
+        .legal-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛒 AIVANTAGE Shop</h1>
+            <p class="subtitle">Premium AI Tools & Templates for Creators</p>
+            
+            <div class="trust-badges">
+                <span class="badge">⚡ Instant Digital Delivery</span>
+                <span class="badge">🔒 Secure Checkout</span>
+                <span class="badge">💳 Multiple Payment Methods</span>
+                <span class="badge">🌍 Global Payments</span>
+            </div>
+        </header>
+        
+        <div class="products-grid">
+            <!-- Product 1: Free Starter Kit -->
+            <div class="product-card">
+                <span class="product-badge free">FREE</span>
+                <h3 class="product-title">AI Automation Starter Kit</h3>
+                <p class="product-description">Everything you need to start automating with AI. Perfect for beginners.</p>
+                
+                <ul class="product-features">
+                    <li>Complete getting started guide (50+ pages)</li>
+                    <li>50+ copy-paste AI prompts</li>
+                    <li>30-day content calendar</li>
+                    <li>Free tools stack (no paid subscriptions)</li>
+                    <li>Monetization strategies</li>
+                    <li>Lifetime updates</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">Free <span class="price-original">$47</span></div>
+                    <div class="price-note">Pay What You Want (optional support)</div>
+                </div>
+                
+                <a href="https://aivantage-starter.vercel.app" class="btn" target="_blank">📥 Download Free</a>
+            </div>
+            
+            <!-- Product 2: Prompt Library -->
+            <div class="product-card">
+                <span class="product-badge bestseller">BESTSELLER</span>
+                <h3 class="product-title">500+ AI Prompts Library</h3>
+                <p class="product-description">Battle-tested prompts that actually work. Save hours of trial and error.</p>
+                
+                <ul class="product-features">
+                    <li>500+ proven prompts (not generic)</li>
+                    <li>10 categories (content, business, coding, etc.)</li>
+                    <li>Copy-paste ready</li>
+                    <li>Regular updates with new prompts</li>
+                    <li>Usage examples for each prompt</li>
+                    <li>Commercial license included</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">$19 <span class="price-original">$97</span></div>
+                    <div class="price-note">One-time payment, lifetime access</div>
+                </div>
+                
+                <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
+            </div>
+            
+            <!-- Product 3: Notion Templates -->
+            <div class="product-card">
+                <span class="product-badge">POPULAR</span>
+                <h3 class="product-title">Creator's Notion Template Pack</h3>
+                <p class="product-description">All-in-one workspace for content creators. Plan, create, and track everything.</p>
+                
+                <ul class="product-features">
+                    <li>Content calendar (365 days)</li>
+                    <li>Video/podcast planning templates</li>
+                    <li>Sponsorship tracker</li>
+                    <li>Analytics dashboard</li>
+                    <li>Revenue tracker</li>
+                    <li>Pre-built databases & views</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">$9 <span class="price-original">$49</span></div>
+                    <div class="price-note">One-time payment, duplicate & own forever</div>
+                </div>
+                
+                <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
+            </div>
+            
+            <!-- Product 4: AI Tools Directory -->
+            <div class="product-card">
+                <span class="product-badge">NEW</span>
+                <h3 class="product-title">AI Tools Directory 2026</h3>
+                <p class="product-description">Curated list of 200+ AI tools. Save time finding the right tools for your needs.</p>
+                
+                <ul class="product-features">
+                    <li>200+ AI tools (free & paid)</li>
+                    <li>20 categories (writing, video, design, etc.)</li>
+                    <li>Pricing comparison</li>
+                    <li>Feature breakdown</li>
+                    <li>Direct links to tools</li>
+                    <li>Monthly updates</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">$14 <span class="price-original">$67</span></div>
+                    <div class="price-note">Includes 1 year of updates</div>
+                </div>
+                
+                <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Add to Cart</button>
+            </div>
+            
+            <!-- Product 5: Template Club -->
+            <div class="product-card">
+                <span class="product-badge">SUBSCRIPTION</span>
+                <h3 class="product-title">Monthly Template Club</h3>
+                <p class="product-description">Fresh templates delivered monthly. Never run out of content ideas.</p>
+                
+                <ul class="product-features">
+                    <li>New template every month</li>
+                    <li>Exclusive community access</li>
+                    <li>Early access to new products</li>
+                    <li>Monthly Q&A calls</li>
+                    <li>Cancel anytime</li>
+                    <li>Vault access (all past templates)</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">$9<span style="font-size: 1rem">/month</span></div>
+                    <div class="price-note">Cancel anytime, no commitment</div>
+                </div>
+                
+                <button class="btn" onclick="alert('Available after Paddle approval!')">🛒 Subscribe Now</button>
+            </div>
+            
+            <!-- Product 6: Custom Prompt -->
+            <div class="product-card">
+                <span class="product-badge">PREMIUM</span>
+                <h3 class="product-title">Custom Prompt Engineering</h3>
+                <p class="product-description">Get custom prompts tailored to your specific use case. 1-on-1 consultation.</p>
+                
+                <ul class="product-features">
+                    <li>1-hour consultation call</li>
+                    <li>5 custom prompts for your workflow</li>
+                    <li>Workflow optimization guide</li>
+                    <li>Email support for 30 days</li>
+                    <li>Recording of the call</li>
+                    <li>Action plan document</li>
+                </ul>
+                
+                <div class="price-section">
+                    <div class="price">$149 <span class="price-original">$297</span></div>
+                    <div class="price-note">Limited slots available</div>
+                </div>
+                
+                <button class="btn" onclick="alert('Available after Paddle approval!')">📅 Book Consultation</button>
+            </div>
+        </div>
+        
+        <div class="guarantee">
+            <h2>🛡️ Shop with Confidence</h2>
+            
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">⚡</div>
+                    <div class="guarantee-title">Instant Delivery</div>
+                    <div class="guarantee-text">Get access immediately after purchase</div>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">🔒</div>
+                    <div class="guarantee-title">Secure Payment</div>
+                    <div class="guarantee-text">Encrypted checkout, PCI compliant</div>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">💳</div>
+                    <div class="guarantee-title">All Cards Accepted</div>
+                    <div class="guarantee-text">Visa, Mastercard, Amex, Apple Pay, Google Pay</div>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">🌍</div>
+                    <div class="guarantee-title">Global Payments</div>
+                    <div class="guarantee-text">Accept payments from 200+ countries</div>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">💰</div>
+                    <div class="guarantee-title">Money-Back Guarantee</div>
+                    <div class="guarantee-text">30-day refund policy, no questions asked</div>
+                </div>
+                
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">📧</div>
+                    <div class="guarantee-title">Email Support</div>
+                    <div class="guarantee-text">Fast, friendly support within 24 hours</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Built with ❤️ by Harshal Lahare | AIVANTAGE</p>
+            <p>India 🇮🇳</p>
+            
+            <div class="legal-links">
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/refund.html">Refund Policy</a>
+            </div>
+            
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                <a href="https://aivantage-starter.vercel.app" target="_blank">Home</a> •
+                <a href="https://aivantage-tools.vercel.app" target="_blank">Free Tools</a> •
+                <a href="https://aivantage-resources.vercel.app" target="_blank">Resources</a>
+            </p>
+            
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                © 2026 AIVANTAGE. All rights reserved.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
